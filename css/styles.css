@@ -87,20 +87,3 @@ main {
     }
 }
 
-
-/* !test */
-
-.buttons {
-    display: flex;
-    flex-direction: row-reverse;
-}
-
-.buttons button {
-    font-size: 20px;
-    padding: 10px;
-}
-
-.filterBtn {
-    font-size: 20px;
-    padding: 10px;
-}
