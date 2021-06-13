@@ -82,8 +82,13 @@ const menu = [
 ];
 
 const sectionCenter = document.querySelector(".section-center");
+const lunchBtn = document.querySelector(".lunchBtn");
 
 window.addEventListener("DOMContentLoaded", function () {
+  displayMenuItems();
+});
+
+function displayMenuItems() {
   let displayMenu = menu.map(function (item) {
 
     return `<article class="menu-item">
@@ -101,4 +106,13 @@ window.addEventListener("DOMContentLoaded", function () {
   });
   displayMenu = displayMenu.join("");
   sectionCenter.innerHTML = displayMenu;
-});
+}
+
+
+
+
+// lunchBtn.addEventListener('click', function() {
+//   let displayLunch = menu.map(function(lunch) {
+   
+//   });
+// });
