@@ -241,31 +241,26 @@ dinnerBtn.addEventListener('click', function() {
 const searchBtn = document.querySelector('.searchBtn');
 const searchInput = document.querySelector('.search-input');
 
-searchBtn.addEventListener('click', function() {
+function searchFunction() {
+  if (searchInput.value.toUpperCase() === "DINNER") {
+    dinnerSearch();
+  } else if (searchInput.value.toUpperCase() === "LUNCH") {
+    lunchSearch();
+  } else if (searchInput.value.toUpperCase() === "SHAKES") {
+    shakesSearch();
+  } else if (searchInput.value.toUpperCase() === "BREAKFAST") {
+    breakfastSearch();
+  } 
+};
 
-    if (searchInput.value.toUpperCase() === "DINNER") {
-      dinnerSearch();
-    } else if (searchInput.value.toUpperCase() === "LUNCH") {
-      lunchSearch();
-    } else if (searchInput.value.toUpperCase() === "SHAKES") {
-      shakesSearch();
-    } else if (searchInput.value.toUpperCase() === "BREAKFAST") {
-      breakfastSearch();
-    } 
+searchBtn.addEventListener('click', function() {
+  searchFunction();
 });
 
 // search by keypress enter
 
 window.addEventListener('keypress', function(enter) {
   if (enter.keyCode == 13) {
-    if (searchInput.value.toUpperCase() === "DINNER") {
-      dinnerSearch();
-    } else if (searchInput.value.toUpperCase() === "LUNCH") {
-      lunchSearch();
-    } else if (searchInput.value.toUpperCase() === "SHAKES") {
-      shakesSearch();
-    } else if (searchInput.value.toUpperCase() === "BREAKFAST") {
-      breakfastSearch();
-    } 
+    searchFunction();
   }
 });
