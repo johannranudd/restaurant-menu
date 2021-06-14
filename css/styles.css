@@ -87,6 +87,29 @@ main {
     }
 }
 
-.lunchBtn {
-  
+.filter-buttons {
+  display: flex;
+  justify-content: space-between;
+  max-width: 350px;
+  margin: 20px auto;
+}
+
+
+.search {
+  display: flex;
+  justify-content: center;
+}
+
+.search-input {
+  border: none;
+  border-bottom: 1px solid grey;
+  padding: 10px 5px;
+}
+
+.searchBtn {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  margin-left: 5px;
 }
