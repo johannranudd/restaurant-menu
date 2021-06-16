@@ -82,7 +82,6 @@ const menu = [
 ];
 
 const sectionCenterGrid = document.querySelector(".section-center-grid");
-// const filterBtns = document.querySelectorAll(".filter-btn");
 const btnWrapper = document.querySelector(".button-wrapper");
 
 // return object to DOM
@@ -149,7 +148,10 @@ function createCategories(cat) {
 
 // !test
 
+// !if buttons exist in html
 // choose categoies
+
+// const filterBtns = document.querySelectorAll(".filter-btn");
 
 // filterBtns.forEach(function (btn) {
 //   btn.addEventListener("click", function (e) {
