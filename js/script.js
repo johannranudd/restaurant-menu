@@ -82,7 +82,8 @@ const menu = [
 ];
 
 const sectionCenterGrid = document.querySelector(".section-center-grid");
-const filterBtns = document.querySelectorAll(".filter-btn");
+// const filterBtns = document.querySelectorAll(".filter-btn");
+const btnWrapper = document.querySelector(".button-wrapper");
 
 // return object to DOM
 function displayMenuItems(menuItem) {
@@ -107,20 +108,59 @@ function displayMenuItems(menuItem) {
 // on Load
 window.addEventListener("DOMContentLoaded", function () {
   displayMenuItems(menu);
+  createCategories(menu);
 });
+
+// !test
+function createCategories(cat) {
+  const uniqueCategories = cat.reduce(
+    function (value, item) {
+      if (!value.includes(item.category)) {
+        value.push(item.category);
+      }
+      return value;
+    },
+    ["all"]
+  );
+  const categoryBtns = uniqueCategories.map(function (item) {
+     return `<button class="filter-btn" data-id=${item}>${item}</button>`;
+  }).join("");
+  btnWrapper.innerHTML = categoryBtns;
+
+
+  // button events
+  btnWrapper.childNodes.forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+
+      const clickedBtn = e.currentTarget.dataset.id;
+      const filterCategory = menu.filter(function(item) {
+        if (clickedBtn == 'all') {
+          return clickedBtn;
+        }
+        else if (item.category === clickedBtn) {
+          return item.category;
+        }
+      })
+      displayMenuItems(filterCategory)
+    })
+  })
+}
+
+
+// !test
 
 // choose categoies
 
-filterBtns.forEach(function (btn) {
-  btn.addEventListener("click", function (e) {
-    const buttonId = e.currentTarget.dataset.id;
-    const menuCategory = menu.filter(function (menuItem) {
-      if (buttonId == "all") {
-        return buttonId;
-      } else if (menuItem.category === buttonId) {
-        return menuItem.category;
-      }
-    });
-    displayMenuItems(menuCategory);
-  });
-});
+// filterBtns.forEach(function (btn) {
+//   btn.addEventListener("click", function (e) {
+//     const buttonId = e.currentTarget.dataset.id;
+//     const menuCategory = menu.filter(function (menuItem) {
+//       if (buttonId == "all") {
+//         return buttonId;
+//       } else if (menuItem.category === buttonId) {
+//         return menuItem;
+//       }
+//     });
+//     displayMenuItems(menuCategory);
+//   });
+// });

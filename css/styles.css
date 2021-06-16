@@ -41,8 +41,7 @@ body {
 
 .button-wrapper {
   display: flex;
-  justify-content: space-between;
-  max-width: 400px;
+  justify-content: center;
   height: 70px;
   margin: auto;
 }
@@ -53,7 +52,7 @@ body {
   font-size: 1rem;
   transition: .3s;
   cursor: pointer;
-  width: 100%;
+  width: 100px;
 }
 
 .filter-btn:hover {
