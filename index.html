@@ -5,53 +5,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+      integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
+      crossorigin="anonymous"
+    />
     <title>Restautant menu</title>
   </head>
   <body>
     <section class="menu">
       <!-- title -->
       <div class="title">
-        <h2>My menu</h2>
+        <h2>Menu</h2>
         <div class="underline"></div>
       </div>
-     <!-- search -->
-      <div class="search">
-        <input type="text" class="search-input">
-        <button class="searchBtn"><i class="fas fa-search"></i></button>
+      <!-- filter buttons -->
+      <div class="button-wrapper">
+        <button class="filter-btn" data-id="all">All</button>
+        <button class="filter-btn" data-id="breakfast">Breakfast</button>
+        <button class="filter-btn" data-id="lunch">Lunch</button>
+        <button class="filter-btn" data-id="shakes">Shakes</button>
       </div>
-       <!-- filter buttons -->
-      <div class="filter-buttons">
-        <button class="allItems">All items</button>
-        <button class="lunchBtn">Lunch</button>
-        <button class="breakfastBtn">Breakfast</button>
-        <button class="shakesBtn">Shakes</button>
-        <button class="dinnerBtn">Dinner</button>
-      </div>
-      
-      <!-- menu items -->
-      <div class="section-center">
+      <!-- grided section -->
+      <div class="section-center-grid">
         <!-- single item -->
-        <article class="menu-item">
-          <img src="/images/pancakes.jpg" class="photo" alt="menu item" />
-            <div class="item-info">
-                <header>
-                <h4>Pancakes</h4>
-                <h4 class="price">$15</h4>
-                </header>
-                <p class="item-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
-                optio libero laborum velit. Ipsum assumenda excepturi quae! Nam,
-                eius atque!
-                </p>
-            </div>
-        </article>
-        
+        <aside class="menu-item">
+          <img src="./images/pancakes.jpg" class="photo" alt="menu item" />
+          <div class="menu-item-text-section">
+            <header>
+              <h4>Pancakes</h4>
+              <p><strong>$ 12</strong></p>
+            </header>
+            <p class="description-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Laudantium magnam quasi, eum asperiores
+            </p>
+          </div>
+        </aside>
         <!-- end single item -->
-        
       </div>
+      <!-- end grid section -->
     </section>
-
     <!-- JS -->
     <script src="js/script.js"></script>
   </body>
