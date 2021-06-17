@@ -107,12 +107,12 @@ function displayMenuItems(menuItem) {
 // on Load
 window.addEventListener("DOMContentLoaded", function () {
   displayMenuItems(menu);
-  createCategories(menu);
+  generateBtns(menu);
 });
 
-// !test
-function createCategories(cat) {
-  const uniqueCategories = cat.reduce(
+function generateBtns(menuItem) {
+  // reduce object to array of categories
+  const returnCategory = menuItem.reduce(
     function (value, item) {
       if (!value.includes(item.category)) {
         value.push(item.category);
@@ -121,30 +121,65 @@ function createCategories(cat) {
     },
     ["all"]
   );
-  const categoryBtns = uniqueCategories.map(function (item) {
-     return `<button class="filter-btn" data-id=${item}>${item}</button>`;
-  }).join("");
-  btnWrapper.innerHTML = categoryBtns;
-
-
-  // button events
-  btnWrapper.childNodes.forEach(function (btn) {
-    btn.addEventListener('click', function (e) {
-
-      const clickedBtn = e.currentTarget.dataset.id;
-      const filterCategory = menu.filter(function(item) {
-        if (clickedBtn == 'all') {
-          return clickedBtn;
-        }
-        else if (item.category === clickedBtn) {
-          return item.category;
-        }
-      })
-      displayMenuItems(filterCategory)
+// go through the array and return a button for each category
+  const displayBtns = returnCategory
+    .map(function (btn) {
+      return `<button class="filter-btn" data-id=${btn}>${btn}</button>`;
     })
-  })
+    .join("");
+    // display the buttons in the DOM
+  btnWrapper.innerHTML = displayBtns;
+
+  // listen for clicks
+  const filterBtns = document.querySelectorAll(".filter-btn");
+  filterBtns.forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
+      const btnClickede = e.currentTarget.dataset.id;
+      const categoryArray = menu.filter(function (obj) {
+        if (btnClickede == "all") {
+          return obj;
+        } else if (obj.category === btnClickede) {
+          return obj;
+        }
+      });
+      displayMenuItems(categoryArray);
+    });
+  });
 }
 
+// !test
+// function createCategories(cat) {
+//   const uniqueCategories = cat.reduce(
+//     function (value, item) {
+//       if (!value.includes(item.category)) {
+//         value.push(item.category);
+//       }
+//       return value;
+//     },
+//     ["all"]
+//   );
+//   const categoryBtns = uniqueCategories.map(function (item) {
+//      return `<button class="filter-btn" data-id=${item}>${item}</button>`;
+//   }).join("");
+//   btnWrapper.innerHTML = categoryBtns;
+
+//   // button events
+//   btnWrapper.childNodes.forEach(function (btn) {
+//     btn.addEventListener('click', function (e) {
+
+//       const clickedBtn = e.currentTarget.dataset.id;
+//       const filterCategory = menu.filter(function(item) {
+//         if (clickedBtn == 'all') {
+//           return clickedBtn;
+//         }
+//         else if (item.category === clickedBtn) {
+//           return item.category;
+//         }
+//       })
+//       displayMenuItems(filterCategory)
+//     })
+//   })
+// }
 
 // !test
 
